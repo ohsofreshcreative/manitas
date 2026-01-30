@@ -28,7 +28,7 @@ $sectionClass .= ' ' . $background;
 						<div class="__card relative bg-white radius px-10 py-14">
 
 							<div class="relative z-10 flex flex-col gap-4 mt-6">
-								<img class="max-w-[56px]" src="http://manitas.local/wp-content/uploads/2026/01/star.svg" />
+								<img class="max-w-[56px]" src="/wp-content/uploads/2026/01/star.svg" />
 								@if(!empty($card['txt']))
 								<div class="__txt !font-bold text-lg">{{ $card['txt'] }}</div>
 								@endif

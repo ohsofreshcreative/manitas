@@ -49,8 +49,8 @@ if (!empty($background) && $background !== 'none') {
 						<figcaption>{{ $image['caption'] }}</figcaption>
 						@endif
 					</figure>
-				<!-- 	<img data-gsap-element="img2" class="__hex zindex2" src="http://manitas.local/wp-content/uploads/2026/01/hexagon_1.svg" alt=""/>
-					<img data-gsap-element="img3" class="__hex zindex3" src="http://manitas.local/wp-content/uploads/2026/01/hexagon_2.svg" alt=""/> -->
+				<!-- 	<img data-gsap-element="img2" class="__hex zindex2" src="/wp-content/uploads/2026/01/hexagon_1.svg" alt=""/>
+					<img data-gsap-element="img3" class="__hex zindex3" src="/wp-content/uploads/2026/01/hexagon_2.svg" alt=""/> -->
 				</div>
 				@endif
 			</div>
