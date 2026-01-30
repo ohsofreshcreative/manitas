@@ -1,3 +1,54 @@
-.hero-sub {
+.b-hero-sub {
+	&.hero {
+		.__content {
+			z-index: 3;
+		}
 
+		.__godown {
+			max-width: 92px;
+		}
+
+		.offer-mask {
+			-webkit-mask-image: url("http://manitas.local/wp-content/uploads/2026/01/mask-bg.svg");
+			mask-image: url("http://manitas.local/wp-content/uploads/2026/01/mask-bg.svg");
+			mask-repeat: no-repeat;
+			mask-size: cover;
+			mask-position: left top;
+			-webkit-mask-size: cover;
+			-webkit-mask-position: left top;
+			right: 0;
+			width: 40%;
+			height: 50%;
+			
+			img {
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+
+		.__left {
+			top: 50%;
+			transform: translateY(-50%);
+			left: -260px;
+			
+			path {
+				fill: var(--bg-light);
+			}
+		}
+
+		.__shape {
+			max-width: 464px;
+			bottom: 100px;
+		}
+
+		/*---- M --*/
+		@media only screen and (max-width: 768px) {
+			height: calc(100vh - 120px) !important;
+
+			.offer-mask {
+				width: 64%;
+				height: 50%;
+			}
+		}
+	}
 }

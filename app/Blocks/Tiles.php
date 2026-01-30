@@ -60,6 +60,7 @@ class Tiles extends Block
 				'label' => 'Przycisk #2',
 				'return_format' => 'array',
 			])
+			->addText('title', ['label' => 'Nagłówek nad listą'])
 			->addImage('bg1', [
 				'label' => 'Obraz w tle #1',
 				'return_format' => 'array', // lub 'url', lub 'id'

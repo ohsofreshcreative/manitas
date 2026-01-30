@@ -1,50 +1,31 @@
-.contact {
-  .__data {
-    font-size: 16px;
-  }
+.b-contact {
+	.phone::before {
+		/* content: url("../assets/images/phone.svg"); */
+		margin-right: 16px;
+		position: relative;
+		top: 4px;
+	}
 
-  .__data a {
-	color:var(--text-s-light);
-  }
-  
-  .__data a:hover {
-	color:var(--text-s-lighter);
-  }
+	.mail::before {
+		/* content: url("../assets/images/mail.svg"); */
+		margin-right: 16px;
+		position: relative;
+		top: 4px;
+	}
 
-  .__phone {
-    display: flex;
-  }
-
-  .__phone::before {
-    content: url('http://windes.local/wp-content/uploads/2025/08/phone-1.svg');
-    margin-right: 16px;
-    position: relative;
-    top: 4px;
-    max-width: 40px;
-  }
-
-  .__mail {
-    display: flex;
-  }
-
-  .__mail::before {
-    content: url('http://windes.local/wp-content/uploads/2025/08/mail-1.svg');
-    margin-right: 16px;
-    position: relative;
-    top: 4px;
-    max-width: 40px;
-  }
-
-  .__glow {
-    top: -10%;
-    left: -10%;
-    width: 489px;
-    height: 489px;
-    flex-shrink: 0;
-    position: absolute;
-    border-radius: 489px;
-    background: linear-gradient(315deg, rgba(240, 246, 255, 0.00) 32.21%, #CDDEF4 84.97%);
-
-    filter: blur(15px);
-  }
+	.offer-mask {
+		-webkit-mask-image: url("http://manitas.local/wp-content/uploads/2026/01/hex.svg");
+		mask-image: url("http://manitas.local/wp-content/uploads/2026/01/hex.svg");
+		mask-repeat: no-repeat;
+		mask-size: contain;
+		mask-position: left center;
+		-webkit-mask-size: contain;
+		-webkit-mask-position: left center;
+		width: 200px;
+		
+		img {
+			max-height: 200px;
+			object-fit: cover;
+		}
+	}
 }

@@ -5,14 +5,14 @@ namespace App\Blocks;
 use Log1x\AcfComposer\Block;
 use StoutLogic\AcfBuilder\FieldsBuilder;
 
-class Steps extends Block
+class Why extends Block
 {
-	public $name = 'Slider - Proces';
-	public $description = 'steps';
-	public $slug = 'steps';
+	public $name = 'Slider - Korzyści';
+	public $description = 'why';
+	public $slug = 'why';
 	public $category = 'formatting';
 	public $icon = 'star-filled';
-	public $keywords = ['steps', 'kafelki'];
+	public $keywords = ['why', 'kafelki'];
 	public $mode = 'edit';
 	public $supports = [
 		'align' => false,
@@ -22,47 +22,43 @@ class Steps extends Block
 
 	public function fields()
 	{
-		$steps = new FieldsBuilder('steps');
+		$why = new FieldsBuilder('why');
 
-		$steps
-			->setLocation('block', '==', 'acf/steps') // ważne!
+		$why
+			->setLocation('block', '==', 'acf/why') // ważne!
 			->addText('block-title', [
 				'label' => 'Tytuł',
 				'required' => 0,
 			])
 			->addAccordion('accordion1', [
-				'label' => 'Slider - Proces',
+				'label' => 'Slider - Korzyści',
 				'open' => false,
 				'multi_expand' => true,
 			])
 			/*--- FIELDS ---*/
 			->addTab('Treści', ['placement' => 'top'])
-			->addGroup('g_steps', ['label' => ''])
+			->addGroup('g_why', ['label' => ''])
 			->addText('title', ['label' => 'Tytuł'])
 			->addWysiwyg('text', ['label' => 'Opis', 'media_upload' => 0, 'tabs' => 'visual'])
 			->endGroup()
 
-			/*--- PROCES ---*/
+			/*--- OPINIE ---*/
 
-			->addTab('Proces', ['placement' => 'top'])
-			->addRepeater('r_steps', [
-				'label' => 'Slider - Proces',
+			->addTab('Opinie', ['placement' => 'top'])
+			->addRepeater('r_why', [
+				'label' => 'Slider - Opinie',
 				'layout' => 'table', // 'row', 'block', albo 'table'
 				'min' => 1,
 				'max' => 15,
 				'button_label' => 'Dodaj kafelek'
 			])
-			->addImage('image', [
-				'label' => 'Obraz',
-				'return_format' => 'array',
-				'preview_size' => 'thumbnail',
+			->addTextarea('txt', [
+				'label' => 'Opis',
+				'rows' => 4,
+				'new_lines' => 'br',
 			])
-			->addText('header', ['label' => 'Nagłówek'])
-			->addWysiwyg('txt', [
-				'label' => 'Treść',
-				'tabs' => 'all',
-				'toolbar' => 'full',
-				'media_upload' => true,
+			->addText('name', [
+				'label' => 'Klient',
 			])
 			->endRepeater()
 
@@ -121,14 +117,14 @@ class Steps extends Block
 				'allow_null' => 0,
 			]);
 
-		return $steps;
+		return $why;
 	}
 
 	public function with()
 	{
 		return [
-			'g_steps' => get_field('g_steps'),
-			'r_steps' => get_field('r_steps'),
+			'g_why' => get_field('g_why'),
+			'r_why' => get_field('r_why'),
 			'section_id' => get_field('section_id'),
 			'section_class' => get_field('section_class'),
 			'nolist' => get_field('nolist'),

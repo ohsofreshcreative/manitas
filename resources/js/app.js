@@ -16,8 +16,10 @@ document.addEventListener('DOMContentLoaded', () => {
   if (document.querySelector('.b-help')) import('./blocks/help');
   if (document.querySelector('.b-team')) import('./blocks/team');
   if (document.querySelector('.b-reviews')) import('./blocks/reviews');
+  if (document.querySelector('.b-why')) import('./blocks/why');
   if (document.querySelector('.b-places')) import('./blocks/places');
   if (document.querySelector('.b-tabs')) import('./blocks/tabs');
+  if (document.querySelector('.b-steps')) import('./blocks/steps');
 });
 
 /*--- NOT USED ---*/

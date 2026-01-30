@@ -1,0 +1,48 @@
+.b-sticky {
+	&.blockSticky {
+		display: flex;
+		flex-direction: column;
+
+		.__figure {
+			width: 160%;
+
+			@media only screen and (max-width: 840px) {
+				width: 100%;
+				position: relative !important;
+				transform: none !important;
+			}
+		}
+
+		.__cards {
+			img.__icon {
+				width: 144px;
+				object-fit: contain;
+				display: block;
+			}
+		}
+
+		ul {
+			list-style: none;
+			padding: 0;
+			margin-top: 16px;
+			margin-bottom: 16px;
+		}
+
+		ul li {
+			position: relative;
+			padding-left: 32px;
+		}
+
+		ul li::before {
+			content: "";
+			position: absolute;
+			left: 0;
+			top: 50%;
+			width: 15px;
+			height: 12px;
+			background-image: url("http://manitas.local/wp-content/uploads/2026/01/check.svg");
+			background-size: cover;
+			transform: translateY(-50%);
+		}
+	}
+}

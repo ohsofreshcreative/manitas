@@ -17,12 +17,12 @@ $sectionClass .= ' ' . $background;
 
 	<div class="__wrapper c-main relative z-10">
 
-		<h3 data-gsap-element="header" class="w-full md:w-1/2">{{ $g_tiles['header'] }}</h3>
+		<h4 data-gsap-element="header" class="w-full md:w-1/2">{{ $g_tiles['header'] }}</h4>
 
-		<div class="__col grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 mt-6 lg:mt-10">
+		<div class="__col grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 mt-6 lg:mt-8">
 
-			<div class="mr-0 md:mr-10">
-				<div data-gsap-element="txt" class="__txt mt-2">
+			<div class="order1 mr-0 md:mr-10">
+				<div data-gsap-element="txt" class="__txt text-xl">
 					{!! $g_tiles['txt'] !!}
 				</div>
 
@@ -48,24 +48,27 @@ $sectionClass .= ' ' . $background;
 				@endif
 			</div>
 
-			<div class="grid gap-10">
-				@foreach ($r_tiles as $item)
-				<div data-gsap-element="card" class="__card">
-					<div class="__content flex items-start gap-6">
-						@if (!empty($item['image']))
-						<img class="max-w-18 radius-img" src="{{ $item['image']['url'] }}" alt="{{ $item['image']['alt'] ?? '' }}">
-						@endif
-						<div>
-							<h6 class="text-h7">{{ $item['header'] }}</h6>
-							<p class="text-white mt-2">{!! $item['txt'] !!}</p>
+			<div class="order2">
+				<h6 data-gsap-element="card">{!! $g_tiles['title'] !!}</h6>
+				<div class="grid gap-4 mt-4">
+					@foreach ($r_tiles as $item)
+					<div data-gsap-element="card" class="__card">
+						<div class="__content flex items-start gap-6">
+							@if (!empty($item['image']))
+							<img class="max-w-18 radius-img mt-2" src="{{ $item['image']['url'] }}" alt="{{ $item['image']['alt'] ?? '' }}">
+							@endif
+							<div>
+								<p class="text-xl">{{ $item['header'] }}</p>
+								@if (!empty($item['txt']))
+								<p class="text-white mt-2">{!! $item['txt'] !!}</p>
+								@endif
+							</div>
 						</div>
 					</div>
+					@endforeach
 				</div>
-				@endforeach
 			</div>
 		</div>
 	</div>
 
-	<img data-gsap-element="bg" class="__bg absolute w-[500px] -left-20 top-20 pointer-events-none" src="{{ $g_tiles['bg1']['url'] }}" />
-	<img data-gsap-element="bg" class="__bg absolute w-[400px] top-1/2 -translate-y-1/2 -right-20 pointer-events-none" src="{{ $g_tiles['bg2']['url'] }}" />
 </section>

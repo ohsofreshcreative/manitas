@@ -5,14 +5,14 @@ namespace App\Blocks;
 use Log1x\AcfComposer\Block;
 use StoutLogic\AcfBuilder\FieldsBuilder;
 
-class Steps extends Block
+class Sticky extends Block
 {
-	public $name = 'Slider - Proces';
-	public $description = 'steps';
-	public $slug = 'steps';
+	public $name = 'Zdjęcie oraz przewijana treść';
+	public $description = 'sticky';
+	public $slug = 'sticky';
 	public $category = 'formatting';
-	public $icon = 'star-filled';
-	public $keywords = ['steps', 'kafelki'];
+	public $icon = 'table-col-before';
+	public $keywords = ['sticky', 'kafelki'];
 	public $mode = 'edit';
 	public $supports = [
 		'align' => false,
@@ -22,47 +22,71 @@ class Steps extends Block
 
 	public function fields()
 	{
-		$steps = new FieldsBuilder('steps');
+		$sticky = new FieldsBuilder('sticky');
 
-		$steps
-			->setLocation('block', '==', 'acf/steps') // ważne!
+		$sticky
+			->setLocation('block', '==', 'acf/sticky')
 			->addText('block-title', [
 				'label' => 'Tytuł',
 				'required' => 0,
 			])
 			->addAccordion('accordion1', [
-				'label' => 'Slider - Proces',
+				'label' => 'Zdjęcie oraz przewijana treść',
 				'open' => false,
 				'multi_expand' => true,
 			])
-			/*--- FIELDS ---*/
-			->addTab('Treści', ['placement' => 'top'])
-			->addGroup('g_steps', ['label' => ''])
-			->addText('title', ['label' => 'Tytuł'])
-			->addWysiwyg('text', ['label' => 'Opis', 'media_upload' => 0, 'tabs' => 'visual'])
-			->endGroup()
 
-			/*--- PROCES ---*/
-
-			->addTab('Proces', ['placement' => 'top'])
-			->addRepeater('r_steps', [
-				'label' => 'Slider - Proces',
-				'layout' => 'table', // 'row', 'block', albo 'table'
-				'min' => 1,
-				'max' => 15,
-				'button_label' => 'Dodaj kafelek'
-			])
+			/*--- TAB #1 ---*/
+			->addTab('Treść', ['placement' => 'top'])
+			->addGroup('g_sticky', ['label' => 'Treść'])
 			->addImage('image', [
 				'label' => 'Obraz',
 				'return_format' => 'array',
-				'preview_size' => 'thumbnail',
+				'preview_size' => 'medium',
 			])
-			->addText('header', ['label' => 'Nagłówek'])
-			->addWysiwyg('txt', [
-				'label' => 'Treść',
+			->addText('subtitle', [
+				'label' => 'Śródtytuł',
+			])
+			->addText('title', [
+				'label' => 'Nagłówek',
+			])
+			->addWysiwyg('content', [
+				'label' => 'Opis',
 				'tabs' => 'all',
 				'toolbar' => 'full',
-				'media_upload' => true,
+				'media_upload' => false,
+			])
+			->addLink('button', [
+				'label' => 'Przycisk',
+				'return_format' => 'array',
+			])
+			->endGroup()
+
+			/*--- TAB #2 ---*/
+			->addTab('Kafelki', ['placement' => 'top'])
+			->addRepeater('cards', [
+				'label' => 'Kafelki',
+				'layout' => 'table',
+				'min' => 1,
+				'button_label' => 'Dodaj kafelek'
+			])
+			->addImage('icon', [
+				'label' => 'Ikona',
+				'return_format' => 'url',
+				'preview_size' => 'thumbnail',
+			])
+			->addText('title', [
+				'label' => 'Nagłówek',
+			])
+			->addWysiwyg('text', [
+				'label' => 'Opis',
+				'tabs' => 'all',
+				'toolbar' => 'full',
+				'media_upload' => false,
+			])
+			->addLink('link', [
+				'label' => 'Link',
+				'return_format' => 'array',
 			])
 			->endRepeater()
 
@@ -117,18 +141,18 @@ class Steps extends Block
 					'section-dark' => 'Ciemne',
 				],
 				'default_value' => 'none',
-				'ui' => 0, // Ulepszony interfejs
+				'ui' => 0,
 				'allow_null' => 0,
 			]);
 
-		return $steps;
+		return $sticky;
 	}
 
 	public function with()
 	{
 		return [
-			'g_steps' => get_field('g_steps'),
-			'r_steps' => get_field('r_steps'),
+			'g_sticky' => get_field('g_sticky'),
+			'cards' => get_field('cards'),
 			'section_id' => get_field('section_id'),
 			'section_class' => get_field('section_class'),
 			'nolist' => get_field('nolist'),
@@ -138,10 +162,5 @@ class Steps extends Block
 			'gap' => get_field('gap'),
 			'background' => get_field('background'),
 		];
-	}
-
-	public function enqueue()
-	{
-		// Pozostaw tę metodę pustą.
 	}
 }

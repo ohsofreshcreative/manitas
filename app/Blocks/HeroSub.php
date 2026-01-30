@@ -22,10 +22,10 @@ class HeroSub extends Block
 
 	public function fields()
 	{
-		$hero_sub = new FieldsBuilder('hero-sub');
+		$hero_sub = new FieldsBuilder('hero_sub');
 
 		$hero_sub
-			->setLocation('block', '==', 'acf/hero-sub') // ważne!
+			->setLocation('block', '==', 'acf/hero-sub')
 			->addText('block-title', [
 				'label' => 'Tytuł',
 				'required' => 0,
@@ -37,29 +37,26 @@ class HeroSub extends Block
 			])
 			/*--- TAB #1 ---*/
 			->addTab('Treść', ['placement' => 'top'])
-			->addGroup('g_hero_sub', ['label' => 'hero-sub'])
+			->addGroup('g_hero_sub', ['label' => 'Hero - Podstrona'])
 			->addImage('image', [
 				'label' => 'Obraz',
 				'return_format' => 'array',
 				'preview_size' => 'medium',
 			])
-			->addTextarea('title', [
-				'label' => 'Nagłówek',
-				'rows' => 2,
-				'new_lines' => 'br',
+			->addText('subtitle', [
+				'label' => 'Śródtytuł',
 			])
-			->addWysiwyg('txt', [
+			->addText('title', [
+				'label' => 'Nagłówek',
+			])
+			->addWysiwyg('content', [
 				'label' => 'Treść',
-				'tabs' => 'all', // 'visual', 'text', 'all'
-				'toolbar' => 'full', // 'basic', 'full'
+				'tabs' => 'all',
+				'toolbar' => 'full',
 				'media_upload' => true,
 			])
-			->addLink('button1', [
-				'label' => 'Przycisk #1',
-				'return_format' => 'array',
-			])
-			->addLink('button2', [
-				'label' => 'Przycisk #2',
+			->addLink('button', [
+				'label' => 'Przycisk',
 				'return_format' => 'array',
 			])
 			->endGroup()
@@ -73,11 +70,50 @@ class HeroSub extends Block
 			->addText('section_class', [
 				'label' => 'Dodatkowe klasy CSS',
 			])
+			->addTrueFalse('nolist', [
+				'label' => 'Brak punktatorów',
+				'ui' => 1,
+				'ui_on_text' => 'Tak',
+				'ui_off_text' => 'Nie',
+			])
+			->addTrueFalse('flip', [
+				'label' => 'Odwrotna kolejność',
+				'ui' => 1,
+				'ui_on_text' => 'Tak',
+				'ui_off_text' => 'Nie',
+			])
+			->addTrueFalse('wide', [
+				'label' => 'Szeroka kolumna',
+				'ui' => 1,
+				'ui_on_text' => 'Tak',
+				'ui_off_text' => 'Nie',
+			])
 			->addTrueFalse('nomt', [
 				'label' => 'Usunięcie marginesu górnego',
 				'ui' => 1,
 				'ui_on_text' => 'Tak',
 				'ui_off_text' => 'Nie',
+			])
+			->addTrueFalse('gap', [
+				'label' => 'Większy odstęp',
+				'ui' => 1,
+				'ui_on_text' => 'Tak',
+				'ui_off_text' => 'Nie',
+			])
+			->addSelect('background', [
+				'label' => 'Kolor tła',
+				'choices' => [
+					'none' => 'Brak (domyślne)',
+					'section-white' => 'Białe',
+					'section-light' => 'Jasne',
+					'section-gray' => 'Szare',
+					'section-brand' => 'Marki',
+					'section-gradient' => 'Gradient',
+					'section-dark' => 'Ciemne',
+				],
+				'default_value' => 'none',
+				'ui' => 0,
+				'allow_null' => 0,
 			]);
 
 		return $hero_sub;
@@ -89,7 +125,12 @@ class HeroSub extends Block
 			'g_hero_sub' => get_field('g_hero_sub'),
 			'section_id' => get_field('section_id'),
 			'section_class' => get_field('section_class'),
+			'nolist' => get_field('nolist'),
+			'flip' => get_field('flip'),
+			'wide' => get_field('wide'),
 			'nomt' => get_field('nomt'),
+			'gap' => get_field('gap'),
+			'background' => get_field('background'),
 		];
 	}
 }

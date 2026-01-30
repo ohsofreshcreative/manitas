@@ -68,6 +68,8 @@ class Cards extends Block
 			])
 			->addTextarea('text', [
 				'label' => 'Opis',
+				'rows' => 4,
+				'new_lines' => 'br',
 			])
 			->endRepeater()
 

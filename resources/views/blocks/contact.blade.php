@@ -1,35 +1,127 @@
 @php
 $sectionClass = '';
+$sectionClass .= $flip ? ' order-flip' : '';
+$sectionClass .= $nolist ? ' no-list' : '';
+$sectionClass .= $wide ? ' wide' : '';
+$sectionClass .= $nomt ? ' !mt-0' : '';
+$sectionClass .= $gap ? ' wider-gap' : '';
+
+if (!empty($background) && $background !== 'none') {
+	$sectionClass .= ' ' . $background;
+}
 @endphp
 
-<!--- contact --->
+<!-- contact -->
 
-<section data-gsap-anim="section" class="contact bg-s-lighter relative -smt pt-30 pb-30 {{ $sectionClass }} {{ $section_class }}">
-
-	<div class="__wrapper c-main relative z-2">
-
-		<div class="relative grid grid-cols-1 lg:grid-cols-2 items-center gap-10 z-10">
-			<div class="__content w-full lg:w-11/12 flex flex-col justify-between">
-				<div class="__data">
-					<h2 data-gsap-element="header" class="">{!! $g_contact_1['header'] !!}</h2>
-
-					<div data-gsap-element="txt" class="mt-6">
-						{!! $g_contact_1['txt'] !!}
-					</div>
-
-					<div data-gsap-element="form" class="mt-10">
-						{!! do_shortcode($g_contact_2['shortcode']) !!}
-					</div>
-
+<section 
+	data-gsap-anim="section" 
+	@if(!empty($section_id)) id="{{ $section_id }}" @endif 
+	class="b-contact relative bg-gradient rounded-3xl py-16 -smt {{ $sectionClass }} {{ $section_class }}">
+	
+	<div class="c-main grid grid-cols-1 lg:grid-cols-2 gap-16 relative z-10">
+		
+		<div class="contact__data">
+			@if (!empty($g_contact['subtitle']))
+			<p data-gsap-element="subtitle" class="subtitle text-primary-300">
+				{{ $g_contact['subtitle'] }}
+			</p>
+			@endif
+			
+			@if (!empty($g_contact['title']))
+			<h2 data-gsap-element="title" class="text-white mt-2">
+				{{ $g_contact['title'] }}
+			</h2>
+			@endif
+			
+			@if (!empty($g_contact['content']))
+			<div data-gsap-element="txt" class="text-white mt-4">
+				{!! $g_contact['content'] !!}
+			</div>
+			@endif
+			
+			<div data-gsap-element="data" class="flex flex-col lg:flex-row gap-28 mt-12">
+				@if (!empty($contact_one))
+				<div>
+					@if (!empty($contact_one['image']))
+					<figure data-gsap-element="img" class="__figure offer-mask">
+						<img 
+							class="figure-image object-cover" 
+							src="{{ $contact_one['image']['url'] }}" 
+							width="{{ $contact_one['image']['width'] }}" 
+							height="{{ $contact_one['image']['height'] }}" 
+							alt="{{ $contact_one['image']['alt'] ?? '' }}">
+					</figure>
+					@endif
+					
+					@if (!empty($contact_one['name']))
+					<h5 class="text-white mt-8 mb-4">{{ $contact_one['name'] }}</h5>
+					@endif
+					
+					@if (!empty($contact_one['phone']))
+					<a class="phone flex items-center !text-white hover:!text-primary-200 w-max text-lg" href="tel:{{ $contact_one['phone'] }}">
+						{{ $contact_one['phone'] }}
+					</a>
+					@endif
+					
+					@if (!empty($contact_one['email']))
+					<a class="mail flex items-center !text-white hover:!text-primary-200 w-max text-lg font-bold" href="mailto:{{ $contact_one['email'] }}">
+						{{ $contact_one['email'] }}
+					</a>
+					@endif
 				</div>
+				@endif
+				
+				@if (!empty($contact_two))
+				<div>
+					@if (!empty($contact_two['image']))
+					<figure data-gsap-element="img" class="__figure offer-mask">
+						<img 
+							class="figure-image object-cover" 
+							src="{{ $contact_two['image']['url'] }}" 
+							width="{{ $contact_two['image']['width'] }}" 
+							height="{{ $contact_two['image']['height'] }}" 
+							alt="{{ $contact_two['image']['alt'] ?? '' }}">
+					</figure>
+					@endif
+					
+					@if (!empty($contact_two['name']))
+					<h5 class="text-white mt-8 mb-4">{{ $contact_two['name'] }}</h5>
+					@endif
+					
+					@if (!empty($contact_two['phone']))
+					<a class="phone flex items-center !text-white hover:!text-primary-200 w-max text-lg" href="tel:{{ $contact_two['phone'] }}">
+						{{ $contact_two['phone'] }}
+					</a>
+					@endif
+					
+					@if (!empty($contact_two['email']))
+					<a class="mail flex items-center !text-white hover:!text-primary-200 w-max text-lg font-bold" href="mailto:{{ $contact_two['email'] }}">
+						{{ $contact_two['email'] }}
+					</a>
+					@endif
+				</div>
+				@endif
 			</div>
-			<div data-gsap-element="img" class="h-full">
-				<img class="h-full radius-img object-cover" src="{{ $g_contact_1['image']['url'] }}" alt="{{ $g_contact_1['image']['alt'] ?? '' }}">
+			
+			@if (!empty($g_contact['button']))
+			<div data-gsap-element="btn">
+				<a class="main-btn mt-12" href="{{ $g_contact['button']['url'] }}" target="{{ $g_contact['button']['target'] ?? '_self' }}">
+					{{ $g_contact['button']['title'] }}
+				</a>
 			</div>
+			@endif
 		</div>
 
-		<div class="__glow"> 
+		<div data-gsap-element="form" class="__form bg-white px-24 py-24 w-full rounded-3xl">
+			@if (!empty($form_title))
+			<h4 class="mb-12">{{ $form_title }}</h4>
+			@endif
+			
+			@if (!empty($shortcode))
+			{!! do_shortcode($shortcode) !!}
+			@endif
 		</div>
+		
 	</div>
-
+	
 </section>

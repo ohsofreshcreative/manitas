@@ -201,6 +201,30 @@ add_action('widgets_init', function () {
 	] + $defaultConfig);
 });
 
+/*--- DISABLE COMMENTS ---*/
+
+add_action('init', function () {
+    remove_post_type_support('post', 'comments');
+    remove_post_type_support('page', 'comments');
+    
+    add_filter('comments_open', '__return_false', 20, 2);
+    add_filter('pings_open', '__return_false', 20, 2);
+    
+    add_filter('comments_array', '__return_empty_array', 10, 2);
+});
+
+add_action('admin_init', function () {
+    remove_meta_box('dashboard_recent_comments', 'dashboard', 'normal');
+});
+
+add_action('admin_menu', function () {
+    remove_menu_page('edit-comments.php');
+});
+
+add_action('wp_before_admin_bar_render', function () {
+    global $wp_admin_bar;
+    $wp_admin_bar->remove_menu('comments');
+});
 
 /*--- CATEGORY IMAGE ---*/
 
@@ -398,8 +422,7 @@ add_action('admin_footer', function () {
   <?php
 });
 
-
-
+/*--- REDIRECT TAXONOMY TO PAGE ---*/
 
 add_action('template_redirect', function () {
     // Sprawdź, czy jesteśmy na stronie archiwum JAKIEJKOLWIEK taksonomii
@@ -491,3 +514,5 @@ add_action('template_redirect', function () {
 				'menu_icon' => 'dashicons-admin-users',
 			]);
 		});
+
+

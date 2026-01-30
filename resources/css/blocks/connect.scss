@@ -1,2 +1,25 @@
 .b-connect {
+	.__phone {
+		display: flex;
+	}
+
+	.__phone::before {
+		content: url('http://manitas.local/wp-content/uploads/2026/01/phone.svg');
+		margin-right: 24px;
+		position: relative;
+		top: 4px;
+		max-width: 40px;
+	}
+
+	.__mail {
+		display: flex;
+	}
+
+	.__mail::before {
+		content: url('http://manitas.local/wp-content/uploads/2026/01/mail.svg');
+		margin-right: 24px;
+		position: relative;
+		top: 4px;
+		max-width: 40px;
+	}
 }

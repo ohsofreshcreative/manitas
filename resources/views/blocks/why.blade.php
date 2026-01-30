@@ -1,41 +1,38 @@
 @php
 $sectionClass = '';
 $sectionClass .= $flip ? ' order-flip' : '';
+$sectionClass .= $nolist ? ' no-list' : '';
 $sectionClass .= $wide ? ' wide' : '';
 $sectionClass .= $nomt ? ' !mt-0' : '';
-$sectionClass .= $lightbg ? ' section-light' : '';
-$sectionClass .= $graybg ? ' section-gray' : '';
-$sectionClass .= $whitebg ? ' section-white' : '';
-$sectionClass .= $brandbg ? ' section-brand' : '';
+$sectionClass .= $gap ? ' wider-gap' : '';
+
+if (!empty($background) && $background !== 'none') {
+$sectionClass .= ' ' . $background;
+}
 @endphp
 
-<!--- reviews --->
+<!--- why --->
 
-<section data-gsap-anim="section" @if(!empty($section_id)) id="{{ $section_id }}" @endif class="b-reviews -smt {{ $sectionClass }} {{ $section_class }}">
+<section data-gsap-anim="section" @if(!empty($section_id)) id="{{ $section_id }}" @endif class="b-why -smt {{ $sectionClass }} {{ $section_class }}">
 	<div class="__wrapper c-main">
 		<div class="__content">
 			<div data-gsap-element="header" class="__wrapper block w-full md:w-1/2 pb-10">
-				<h3 class="">{{ $g_reviews['title']}}</h3>
-				<div class="">{!! $g_reviews['text'] !!}</div>
+				<h3 class="">{{ $g_why['title']}}</h3>
+				<div class="">{!! $g_why['text'] !!}</div>
 			</div>
 
-			<div class="swiper reviews-swiper !overflow-visible">
+			<div class="swiper why-swiper !overflow-visible">
 				<div data-gsap-element="swiper" class="swiper-wrapper">
-					@foreach($r_reviews as $card)
+					@foreach($r_why as $card)
 					<div class="swiper-slide">
 						<div class="__card relative bg-white radius px-10 py-14">
 
 							<div class="relative z-10 flex flex-col gap-4 mt-6">
+								<img class="max-w-[56px]" src="http://manitas.local/wp-content/uploads/2026/01/star.svg" />
 								@if(!empty($card['txt']))
-								<div class="__txt">{{ $card['txt'] }}</div>
+								<div class="__txt !font-bold text-lg">{{ $card['txt'] }}</div>
 								@endif
-								<img class="max-w-1/2" src="/wp-content/uploads/2026/01/stars.svg" />
-								<b class="font-header text-xl">{{ $card['name'] }}</b>
-								<div class="flex items-center gap-4">
-									<img src="/wp-content/uploads/2026/01/google.svg" />Opinia zweryfikowana<svg xmlns="http://www.w3.org/2000/svg" width="10" height="9" viewBox="0 0 10 9" fill="none">
-										<path d="M9.79198 3.98624C9.79176 3.98602 9.79159 3.98577 9.79134 3.98555L6.08553 0.211353C5.8079 -0.0713855 5.35886 -0.0703333 5.08251 0.21382C4.8062 0.497937 4.80727 0.957482 5.08489 1.24026L7.57297 3.77419L0.709219 3.77419C0.317517 3.77419 0 4.09914 0 4.5C0 4.90086 0.317517 5.22581 0.709219 5.22581H7.57294L5.08492 7.75974C4.8073 8.04252 4.80624 8.50206 5.08255 8.78618C5.3589 9.07037 5.80797 9.07135 6.08556 8.78865L9.79137 5.01445C9.79159 5.01423 9.79176 5.01398 9.79201 5.01376C10.0698 4.73004 10.0689 4.26901 9.79198 3.98624Z" fill="#249408" />
-									</svg>
-								</div>
+						
 							</div>
 						</div>
 					</div>

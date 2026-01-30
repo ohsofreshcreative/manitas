@@ -8,11 +8,11 @@ use StoutLogic\AcfBuilder\FieldsBuilder;
 class Hero extends Block
 {
 	public $name = 'Hero';
-	public $description = 'Hero';
+	public $description = 'Hero z wideo w tle';
 	public $slug = 'hero';
 	public $category = 'formatting';
-	public $icon = 'align-full-width';
-	public $keywords = ['tresc', 'zdjecie'];
+	public $icon = 'format-video';
+	public $keywords = ['hero', 'wideo', 'video'];
 	public $mode = 'edit';
 	public $supports = [
 		'align' => false,
@@ -25,7 +25,7 @@ class Hero extends Block
 		$hero = new FieldsBuilder('hero');
 
 		$hero
-			->setLocation('block', '==', 'acf/hero') // ważne!
+			->setLocation('block', '==', 'acf/hero')
 			->addText('block-title', [
 				'label' => 'Tytuł',
 				'required' => 0,
@@ -38,25 +38,21 @@ class Hero extends Block
 			/*--- TAB #1 ---*/
 			->addTab('Treść', ['placement' => 'top'])
 			->addGroup('g_hero', ['label' => 'Hero'])
-			->addImage('image', [
-				'label' => 'Obraz',
+			->addFile('video_file', [
+				'label' => 'Wideo (plik MP4)',
+				'return_format' => 'url',
+				'mime_types' => 'mp4',
+			])
+			->addImage('poster_image', [
+				'label' => 'Obraz zapasowy (poster)',
 				'return_format' => 'array',
 				'preview_size' => 'medium',
 			])
-			->addText('title', ['label' => 'Tytuł'])
-			->addWysiwyg('txt', [
-				'label' => 'Treść',
-				'tabs' => 'all', // 'visual', 'text', 'all'
-				'toolbar' => 'full', // 'basic', 'full'
-				'media_upload' => true,
+			->addText('pretitle', [
+				'label' => 'Śródtytuł',
 			])
-			->addLink('button1', [
-				'label' => 'Przycisk #1',
-				'return_format' => 'array',
-			])
-			->addLink('button2', [
-				'label' => 'Przycisk #2',
-				'return_format' => 'array',
+			->addText('title', [
+				'label' => 'Nagłówek',
 			])
 			->endGroup()
 

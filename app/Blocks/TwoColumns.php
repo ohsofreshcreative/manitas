@@ -25,7 +25,7 @@ class TwoColumns extends Block
 		$twocolumns = new FieldsBuilder('twocolumns');
 
 		$twocolumns
-			->setLocation('block', '==', 'acf/twocolumns') // ważne!
+			->setLocation('block', '==', 'acf/twocolumns')
 			->addText('block-title', [
 				'label' => 'Tytuł',
 				'required' => 0,
@@ -35,27 +35,18 @@ class TwoColumns extends Block
 				'open' => false,
 				'multi_expand' => true,
 			])
-			/*--- FIELDS ---*/
-			->addTab('Kolumna #1', ['placement' => 'top'])
-			->addGroup('col1', ['label' => ''])
-			->addImage('image', [
-				'label' => 'Obraz',
-				'return_format' => 'array', // lub 'url', lub 'id'
-				'preview_size' => 'medium',
+			/*--- TAB #1 ---*/
+			->addTab('Treść', ['placement' => 'top'])
+			->addGroup('g_twocols', ['label' => 'Dwie kolumny'])
+			->addText('title', [
+				'label' => 'Nagłówek',
+				'required' => 1,
 			])
-			->addText('title', ['label' => 'Tytuł'])
-			->addTextarea('text', [
-				'label' => 'Opis',
-				'rows' => 4,
-				'placeholder' => 'Wpisz opis...',
-				'new_lines' => 'br',
-			])
-			->addText('subtitle', ['label' => 'Śródtytuł'])
 			->addWysiwyg('content', [
 				'label' => 'Treść',
-				'tabs' => 'all', // 'visual', 'text', 'all'
-				'toolbar' => 'full', // 'basic', 'full'
-				'media_upload' => true,
+				'tabs' => 'all',
+				'toolbar' => 'full',
+				'media_upload' => false,
 			])
 			->addLink('button', [
 				'label' => 'Przycisk',
@@ -63,46 +54,81 @@ class TwoColumns extends Block
 			])
 			->endGroup()
 
-			/*--- GRUPA #2 ---*/
-			->addTab('Kolumna #2', ['placement' => 'top'])
-			->addGroup('col2', ['label' => ''])
+			/*--- TAB #2 ---*/
+			->addTab('Grafika', ['placement' => 'top'])
 			->addImage('image', [
 				'label' => 'Obraz',
-				'return_format' => 'array', // lub 'url', lub 'id'
-				'preview_size' => 'medium',
-			])
-			->addText('title', ['label' => 'Tytuł'])
-			->addTextarea('text', [
-				'label' => 'Opis',
-				'rows' => 4,
-				'placeholder' => 'Wpisz opis...',
-				'new_lines' => 'br',
-			])
-			->addText('subtitle', ['label' => 'Śródtytuł'])
-			->addWysiwyg('content', [
-				'label' => 'Treść',
-				'tabs' => 'all', // 'visual', 'text', 'all'
-				'toolbar' => 'full', // 'basic', 'full'
-				'media_upload' => true,
-				'wpautop' => false,
-			])
-			->addLink('cta', [
-				'label' => 'Przycisk',
 				'return_format' => 'array',
+				'preview_size' => 'thumbnail',
 			])
-			->endGroup()
+
+			/*--- TAB #3 ---*/
+			->addTab('Lista', ['placement' => 'top'])
+			->addRepeater('values', [
+				'label' => 'Propozycje wartości',
+				'button_label' => 'Dodaj',
+				'layout' => 'table',
+			])
+			->addText('title', [
+				'label' => 'Tekst',
+				'required' => 1,
+			])
+			->endRepeater()
 
 			/*--- USTAWIENIA BLOKU ---*/
 
 			->addTab('Ustawienia bloku', ['placement' => 'top'])
+			->addText('section_id', [
+				'label' => 'ID',
+			])
+			->addText('section_class', [
+				'label' => 'Dodatkowe klasy CSS',
+			])
+			->addTrueFalse('nolist', [
+				'label' => 'Brak punktatorów',
+				'ui' => 1,
+				'ui_on_text' => 'Tak',
+				'ui_off_text' => 'Nie',
+			])
 			->addTrueFalse('flip', [
 				'label' => 'Odwrotna kolejność',
 				'ui' => 1,
 				'ui_on_text' => 'Tak',
 				'ui_off_text' => 'Nie',
+			])
+			->addTrueFalse('wide', [
+				'label' => 'Szeroka kolumna',
+				'ui' => 1,
+				'ui_on_text' => 'Tak',
+				'ui_off_text' => 'Nie',
+			])
+			->addTrueFalse('nomt', [
+				'label' => 'Usunięcie marginesu górnego',
+				'ui' => 1,
+				'ui_on_text' => 'Tak',
+				'ui_off_text' => 'Nie',
+			])
+			->addTrueFalse('gap', [
+				'label' => 'Większy odstęp',
+				'ui' => 1,
+				'ui_on_text' => 'Tak',
+				'ui_off_text' => 'Nie',
+			])
+			->addSelect('background', [
+				'label' => 'Kolor tła',
+				'choices' => [
+					'none' => 'Brak (domyślne)',
+					'section-white' => 'Białe',
+					'section-light' => 'Jasne',
+					'section-gray' => 'Szare',
+					'section-brand' => 'Marki',
+					'section-gradient' => 'Gradient',
+					'section-dark' => 'Ciemne',
+				],
+				'default_value' => 'none',
+				'ui' => 0,
+				'allow_null' => 0,
 			]);
-
-
 
 		return $twocolumns;
 	}
@@ -110,9 +136,17 @@ class TwoColumns extends Block
 	public function with()
 	{
 		return [
-			'col1' => get_field('col1'),
-			'col2' => get_field('col2'),
+			'g_twocols' => get_field('g_twocols'),
+			'image' => get_field('image'),
+			'values' => get_field('values'),
+			'section_id' => get_field('section_id'),
+			'section_class' => get_field('section_class'),
+			'nolist' => get_field('nolist'),
 			'flip' => get_field('flip'),
+			'wide' => get_field('wide'),
+			'nomt' => get_field('nomt'),
+			'gap' => get_field('gap'),
+			'background' => get_field('background'),
 		];
 	}
 }
