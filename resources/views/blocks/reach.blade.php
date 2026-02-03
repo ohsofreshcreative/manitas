@@ -26,6 +26,7 @@ $sectionClass .= ' ' . $background;
 			<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
 				<div data-gsap-element="data" class="__data flex flex-col gap-4">
 					<a href="tel:{{ preg_replace('/\s+/', '', $g_reach['phone']) }}" class="__phone flex items-center text-xl !text-white hover:!text-primary-light">{{ $g_reach['phone'] }}</a>
+					<a href="tel:{{ preg_replace('/\s+/', '', $g_reach['phone2']) }}" class="__phone flex items-center text-xl !text-white hover:!text-primary-light">{{ $g_reach['phone2'] }}</a>
 					<a href="mailto:{{ $g_reach['mail'] }}" class="__mail flex items-center text-xl !text-white hover:!text-primary-light">{{ $g_reach['mail'] }}</a>
 				</div>
 			</div>

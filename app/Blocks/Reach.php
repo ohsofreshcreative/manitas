@@ -44,7 +44,8 @@ class Reach extends Block
 				'rows' => 4,
 				'new_lines' => 'br',
 			])
-			->addText('phone', ['label' => 'Telefon'])
+			->addText('phone', ['label' => 'Telefon #1'])
+			->addText('phone2', ['label' => 'Telefon #2'])
 			->addText('mail', ['label' => 'Email'])
 			->addLink('button', [
 				'label' => 'Przycisk',
