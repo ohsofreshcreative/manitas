@@ -517,7 +517,7 @@ add_action('template_redirect', function () {
 
 
 /*--- COMING SOON ---*/
-
+/* 
 add_action('template_redirect', function () {
     // Sprawdzamy, czy jesteśmy na stronie produktu i czy ma ona ustawione pole "coming_soon".
     if (is_product() && get_post_meta(get_the_ID(), 'coming_soon', true)) {
@@ -530,4 +530,4 @@ add_action('template_redirect', function () {
         // nie próbował załadować standardowego szablonu produktu.
         exit;
     }
-});
+}); */

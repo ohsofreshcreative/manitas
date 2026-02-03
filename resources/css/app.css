@@ -119,6 +119,7 @@
 @import '../css/blocks/cards.scss';
 @import '../css/blocks/steps.scss';
 @import '../css/blocks/sticky.scss';
+@import '../css/blocks/reach.scss';
 
 /*-- NOT USED --*/
 @import '../css/blocks/help.scss';

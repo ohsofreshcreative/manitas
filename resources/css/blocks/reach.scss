@@ -1,0 +1,34 @@
+.b-reach {
+	.__phone {
+		display: flex;
+	}
+
+	.__phone::before {
+		content: url('/wp-content/uploads/2026/01/phone.svg');
+		margin-right: 24px;
+		position: relative;
+		top: 4px;
+		max-width: 40px;
+	}
+
+	.__mail {
+		display: flex;
+	}
+
+	.__mail::before {
+		content: url('/wp-content/uploads/2026/01/mail.svg');
+		margin-right: 24px;
+		position: relative;
+		top: 4px;
+		max-width: 40px;
+	}
+	.wpcf7-form-control.wpcf7-radio {
+    margin-top: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.wpcf7-list-item {
+	margin-left:0 !important;
+}
+}
