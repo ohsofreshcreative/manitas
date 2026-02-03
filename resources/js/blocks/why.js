@@ -22,7 +22,7 @@ const initWhySwiper = (scope = document) => {
 
       slidesPerView: 1.2,
       spaceBetween: 24,
-      loop: true,
+      loop: false,
 
       pagination: {
         el: paginationEl,

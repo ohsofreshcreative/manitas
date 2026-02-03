@@ -36,7 +36,8 @@ class Bottom extends Field
 			])
 			->addText('txt', ['label' => 'Tekst'])
 			->addText('header', ['label' => 'Nagłówek'])
-			->addText('phone', ['label' => 'Telefon'])
+			->addText('phone', ['label' => 'Telefon #1'])
+			->addText('phone2', ['label' => 'Telefon #2'])
 			->addText('mail', ['label' => 'Email'])
 			->addLink('button', [
 				'label' => 'Przycisk #1',

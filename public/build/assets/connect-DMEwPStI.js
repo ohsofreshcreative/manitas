@@ -1,0 +1,1 @@
+document.addEventListener("DOMContentLoaded",function(){const n=document.querySelector(".toggle-expand"),e=document.querySelector(".__expand");!n||!e||n.addEventListener("click",function(){const t=e.classList.toggle("is-open");n.classList.toggle("is-open"),n.innerHTML=t?'Zwiń <span class="arrow">▲</span>':'Rozwiń <span class="arrow">▼</span>'})});

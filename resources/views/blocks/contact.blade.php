@@ -112,7 +112,7 @@ if (!empty($background) && $background !== 'none') {
 			@endif
 		</div>
 
-		<div data-gsap-element="form" class="__form bg-white px-24 py-24 w-full rounded-3xl">
+		<div data-gsap-element="form" class="__form bg-white p-10 md:p-24 w-full rounded-3xl">
 			@if (!empty($form_title))
 			<h4 class="mb-12">{{ $form_title }}</h4>
 			@endif

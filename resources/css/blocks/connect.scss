@@ -22,4 +22,33 @@
 		top: 4px;
 		max-width: 40px;
 	}
+
+	.__expand {
+		max-height: 0;
+		overflow: hidden;
+		transition: max-height 0.4s ease;
+	}
+
+	.__expand.is-open {
+		max-height: 2000px;
+		/* wystarczająco duża wartość */
+	}
+
+	.toggle-expand {
+		cursor: pointer;
+		font-size: 14px;
+		display: inline-flex;
+		align-items: center;
+		gap: 6px;
+		user-select: none;
+	}
+
+	.toggle-expand .arrow {
+		transition: transform 0.3s ease;
+	}
+
+	.toggle-expand.is-open .arrow {
+		transform: rotate(180deg);
+	}
+
 }

@@ -38,7 +38,7 @@ $sectionClass .= ' ' . $background;
 				<img class="mb-6" src="{{ $item['image']['url'] }}" alt="{{ $item['image']['alt'] ?? '' }}" />
 				@endif
 				@if (!empty($item['title']))
-				<p class="!text-body text-base !font-semibold mb-4">{{ $item['title'] }}</p>
+				<p class="__title !text-body text-base !font-semibold mb-4">{{ $item['title'] }}</p>
 				@endif
 				@if (!empty($item['text']))
 				<p class="!text-body">{!! $item['text'] !!}</p>

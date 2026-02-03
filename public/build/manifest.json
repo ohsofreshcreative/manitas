@@ -1,6 +1,10 @@
 {
-  "_pagination-BC_lV12I.js": {
-    "file": "assets/pagination-BC_lV12I.js",
+  "_pagination-BmgjDa1V.css": {
+    "file": "assets/pagination-BmgjDa1V.css",
+    "src": "_pagination-BmgjDa1V.css"
+  },
+  "_pagination-Czc9I7YJ.js": {
+    "file": "assets/pagination-Czc9I7YJ.js",
     "name": "pagination",
     "imports": [
       "resources/js/app.js"
@@ -8,10 +12,6 @@
     "css": [
       "assets/pagination-BmgjDa1V.css"
     ]
-  },
-  "_pagination-BmgjDa1V.css": {
-    "file": "assets/pagination-BmgjDa1V.css",
-    "src": "_pagination-BmgjDa1V.css"
   },
   "_swiper-DHBATib1.css": {
     "file": "assets/swiper-DHBATib1.css",
@@ -22,7 +22,7 @@
     "src": "editor.deps.json"
   },
   "resources/css/app.css": {
-    "file": "assets/app-Bwu3MX8-.css",
+    "file": "assets/app-hnj_AHYf.css",
     "src": "resources/css/app.css",
     "isEntry": true,
     "name": "app",
@@ -31,7 +31,7 @@
     ]
   },
   "resources/css/editor.css": {
-    "file": "assets/editor-DTim21vC.css",
+    "file": "assets/editor-pi_V8adY.css",
     "src": "resources/css/editor.css",
     "isEntry": true,
     "name": "editor",
@@ -76,7 +76,7 @@
     "src": "resources/images/ring-mask.svg"
   },
   "resources/js/app.js": {
-    "file": "assets/app-DWLZs4ZG.js",
+    "file": "assets/app-CnYjG5RN.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
@@ -87,17 +87,24 @@
       "resources/js/blocks/why.js",
       "resources/js/blocks/places.js",
       "resources/js/blocks/tabs.js",
-      "resources/js/blocks/steps.js"
+      "resources/js/blocks/steps.js",
+      "resources/js/blocks/connect.js"
     ]
   },
+  "resources/js/blocks/connect.js": {
+    "file": "assets/connect-DMEwPStI.js",
+    "name": "connect",
+    "src": "resources/js/blocks/connect.js",
+    "isDynamicEntry": true
+  },
   "resources/js/blocks/help.js": {
-    "file": "assets/help-CCnA-fLv.js",
+    "file": "assets/help-_IE8rT9s.js",
     "name": "help",
     "src": "resources/js/blocks/help.js",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_pagination-BC_lV12I.js"
+      "_pagination-Czc9I7YJ.js"
     ],
     "css": [
       "assets/help-BoYVoAWi.css",
@@ -105,7 +112,7 @@
     ]
   },
   "resources/js/blocks/places.js": {
-    "file": "assets/places-ZqnDpVr6.js",
+    "file": "assets/places-BwfHCS3e.js",
     "name": "places",
     "src": "resources/js/blocks/places.js",
     "isDynamicEntry": true,
@@ -114,33 +121,33 @@
     ]
   },
   "resources/js/blocks/reviews.js": {
-    "file": "assets/reviews-C6XFmZKz.js",
+    "file": "assets/reviews-DOm5U9lG.js",
     "name": "reviews",
     "src": "resources/js/blocks/reviews.js",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_pagination-BC_lV12I.js"
+      "_pagination-Czc9I7YJ.js"
     ],
     "css": [
       "assets/swiper-DHBATib1.css"
     ]
   },
   "resources/js/blocks/steps.js": {
-    "file": "assets/steps-DcdrpEqi.js",
+    "file": "assets/steps-CTUhrXoL.js",
     "name": "steps",
     "src": "resources/js/blocks/steps.js",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_pagination-BC_lV12I.js"
+      "_pagination-Czc9I7YJ.js"
     ],
     "css": [
       "assets/swiper-DHBATib1.css"
     ]
   },
   "resources/js/blocks/tabs.js": {
-    "file": "assets/tabs-DOZ2eqHy.js",
+    "file": "assets/tabs-DokbQDlF.js",
     "name": "tabs",
     "src": "resources/js/blocks/tabs.js",
     "isDynamicEntry": true,
@@ -153,26 +160,26 @@
     ]
   },
   "resources/js/blocks/team.js": {
-    "file": "assets/team-B6ez7U8H.js",
+    "file": "assets/team-CQty95gE.js",
     "name": "team",
     "src": "resources/js/blocks/team.js",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_pagination-BC_lV12I.js"
+      "_pagination-Czc9I7YJ.js"
     ],
     "css": [
       "assets/swiper-DHBATib1.css"
     ]
   },
   "resources/js/blocks/why.js": {
-    "file": "assets/why-DSoquYAA.js",
+    "file": "assets/why-CEtDp_H0.js",
     "name": "why",
     "src": "resources/js/blocks/why.js",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_pagination-BC_lV12I.js"
+      "_pagination-Czc9I7YJ.js"
     ],
     "css": [
       "assets/swiper-DHBATib1.css"
