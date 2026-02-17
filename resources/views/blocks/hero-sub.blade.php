@@ -56,7 +56,7 @@ if (!empty($background) && $background !== 'none') {
 		</div>
 		
 		@if (!empty($g_hero_sub['image']))
-		<figure data-gsap-element="img" class="__figure absolute order-2 offer-mask z-10 -bottom-[5%] lg:bottom-0">
+		<figure data-gsap-element="img" class="__figure absolute order-2 offer-mask z-10 -bottom-[5%] lg:bottom-unset">
 			<img 
 				class="figure-image object-cover" 
 				src="{{ $g_hero_sub['image']['url'] }}" 
