@@ -92,8 +92,8 @@ body {
 
 :root {
 	--header: "Graphie", sans-serif;
-    --txt: "Graphie", sans-serif;
-    --btns-font: "Graphie", sans-serif;
+	--txt: "Graphie", sans-serif;
+	--btns-font: "Graphie", sans-serif;
 
 	--smt: 104px;
 	--spt: 104px;
@@ -282,6 +282,7 @@ body {
 .section-white {
 	background-color: #fff;
 	padding: var(--smt) 0;
+
 	.bg-white {
 		background-color: var(--bg) !important;
 	}
@@ -377,8 +378,12 @@ body {
 	.__txt {
 		color: #fff;
 	}
-	.__card .__txt, .__card .__txt p, .__card .__txt b {
-		color:var(--color-body) !important;;
+
+	.__card .__txt,
+	.__card .__txt p,
+	.__card .__txt b {
+		color: var(--color-body) !important;
+		;
 	}
 }
 
@@ -989,6 +994,10 @@ h6,
 }
 
 #mobile-menu-panel {
+	.brand {
+		filter: contrast(0) brightness(2);
+	}
+
 	li a {
 		color: #fff;
 		font-size: 20px;
