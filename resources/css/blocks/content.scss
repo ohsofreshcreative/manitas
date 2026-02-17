@@ -64,3 +64,25 @@
 		}
 	}
 }
+
+/*--- EFEKT ---*/
+
+.b-content.effect {
+	.__col {
+		grid-template-columns: 1fr !important;
+		gap:0 !important;
+	}
+
+	.__content {
+		text-align: center !important;
+	}
+
+	.masked {
+		-webkit-mask-image: unset !important;
+		mask-image: unset !important;
+	}
+
+	.__img {
+		aspect-ratio: 16 / 7 !important;
+	}
+}

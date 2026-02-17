@@ -50,6 +50,11 @@ class Gallery extends Block
 				'min' => 1,
 				'max' => 10,
 			])
+			->addImage('video_thumbnail', [
+				'label' => 'Miniaturka dla wideo (opcjonalnie)',
+				'instructions' => 'Jeśli dodajesz wideo, tutaj możesz wgrać dla niego dedykowaną miniaturkę.',
+				'return_format' => 'array',
+			])
 
 			->endGroup()
 
@@ -93,20 +98,20 @@ class Gallery extends Block
 				'ui_off_text' => 'Nie',
 			])
 			->addSelect('background', [
-                'label' => 'Kolor tła',
-                'choices' => [
-                    'none' => 'Brak (domyślne)',
-                    'section-white' => 'Białe',
-                    'section-light' => 'Jasne',
-                    'section-gray' => 'Szare',
-                    'section-brand' => 'Marki',
-                    'section-gradient' => 'Gradient',
-                    'section-dark' => 'Ciemne',
-                ],
-                'default_value' => 'none',
-                'ui' => 0, // Ulepszony interfejs
-                'allow_null' => 0,
-            ]);
+				'label' => 'Kolor tła',
+				'choices' => [
+					'none' => 'Brak (domyślne)',
+					'section-white' => 'Białe',
+					'section-light' => 'Jasne',
+					'section-gray' => 'Szare',
+					'section-brand' => 'Marki',
+					'section-gradient' => 'Gradient',
+					'section-dark' => 'Ciemne',
+				],
+				'default_value' => 'none',
+				'ui' => 0, // Ulepszony interfejs
+				'allow_null' => 0,
+			]);
 
 		return $gallery;
 	}

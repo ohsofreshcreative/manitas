@@ -2,6 +2,7 @@
 // Importujemy tylko Alpine, resztę bibliotek (GSAP) ładujemy globalnie
 
 import Alpine from 'alpinejs';
+import GLightbox from 'glightbox';
 
 // Importy zasobów dla Vite (np. obrazy, fonty)
 import.meta.glob(['../images/**', '../fonts/**']);
@@ -39,18 +40,21 @@ Alpine.start();
 /*--- SKRYPTY URUCHAMIANE PO ZAŁADOWANIU STRONY ---*/
 
 document.addEventListener('DOMContentLoaded', function () {
-  // Inicjalizacja baguetteBox.js dla galerii
-  if (document.querySelector('.lightbox-gallery')) {
-    baguetteBox.run('.lightbox-gallery');
-  }
 
-  // Sprawdzenie, czy globalny GSAP istnieje. Jeśli nie, nic nie robimy, aby uniknąć błędów.
   if (typeof gsap === 'undefined') {
     console.error(
       'GSAP nie został załadowany globalnie. Sprawdź plik app/setup.php lub functions.php'
     );
     return;
   }
+
+  /*--- LIGHTBOX ---*/
+
+const lightbox = GLightbox({
+  selector: '.lightbox-gallery a', 
+  touchNavigation: true,
+  loop: true,
+});
 
   // --- TWOJE ISTNIEJĄCE ANIMACJE GSAP (TERAZ POWINNY DZIAŁAĆ) ---
   gsap.utils.toArray("[data-gsap-anim='section']").forEach((section) => {
@@ -100,14 +104,17 @@ document.addEventListener('DOMContentLoaded', function () {
       const sorted = [...staggerElements].sort((a, b) => {
         const getDelay = (el) => {
           const attr = el.getAttribute('data-gsap-edit');
-          return attr && attr.startsWith('delay-')
-            ? parseFloat(attr.replace('delay-', '')) || 0
-            : 0;
+          return attr && attr.startsWith('delay-') ?
+            parseFloat(attr.replace('delay-', '')) || 0 :
+            0;
         };
         return getDelay(a) - getDelay(b);
       });
 
-      gsap.set(sorted, { opacity: 0, y: 50 });
+      gsap.set(sorted, {
+        opacity: 0,
+        y: 50
+      });
 
       gsap.to(sorted, {
         opacity: 1,
@@ -115,7 +122,10 @@ document.addEventListener('DOMContentLoaded', function () {
         filter: 'blur(0px)',
         duration: 1,
         ease: 'power2.out',
-        stagger: { amount: 1.5, each: 0.1 },
+        stagger: {
+          amount: 1.5,
+          each: 0.1
+        },
         scrollTrigger: {
           trigger: section,
           start: 'top 80%',
@@ -168,8 +178,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const isOpen = content.classList.toggle('is-open');
     toggle.classList.toggle('is-open');
 
-    toggle.innerHTML = isOpen
-      ? 'Zwiń <span class="arrow">▲</span>'
-      : 'Rozwiń <span class="arrow">▼</span>';
+    toggle.innerHTML = isOpen ?
+      'Zwiń <span class="arrow">▲</span>' :
+      'Rozwiń <span class="arrow">▼</span>';
   });
 });

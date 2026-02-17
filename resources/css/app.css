@@ -1,4 +1,5 @@
 @import 'tailwindcss' theme(static);
+@import 'glightbox/dist/css/glightbox.css';
 
 /* bardzo ważne dla Sage/Blade: skanowanie klas */
 @source "../views/**/*.blade.php";

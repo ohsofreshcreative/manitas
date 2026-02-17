@@ -40,7 +40,7 @@ const initReviewsSwiper = (scope = document) => {
           spaceBetween: 24,
         },
         1024: {
-          slidesPerView: 3.8,
+          slidesPerView: 2.8,
           spaceBetween: 24,
         },
       },
@@ -62,3 +62,25 @@ if (window.acf) {
 }
 
 export default initReviewsSwiper;
+
+
+const reviewCards = document.querySelectorAll('.b-reviews .__card');
+
+reviewCards.forEach((card) => {
+  const text = card.querySelector('[data-review="text"]');
+  const button = card.querySelector('[data-review="button"]');
+
+  if (text && button) {
+    // Show button only if text is overflowing
+    if (text.scrollHeight > text.clientHeight) {
+      button.style.display = 'block';
+    } else {
+      button.style.display = 'none';
+    }
+
+    button.addEventListener('click', () => {
+      text.classList.remove('max-h-24');
+      button.style.display = 'none';
+    });
+  }
+});
