@@ -26,7 +26,7 @@ $sectionClass .= $brandbg ? ' section-brand' : '';
 						<div class="__card relative bg-white radius px-10 py-14">
 
 							<div class="relative z-10 flex flex-col gap-4 mt-6">
-								<img class="w-20" src="http://manitas.local/wp-content/uploads/2026/02/quote.svg" />
+								<img class="w-20" src="/wp-content/uploads/2026/02/quote.svg" />
 								@if(!empty($card['txt']))
 								<div>
 									<div data-review="text" class="__txt max-h-24 overflow-hidden transition-all duration-300">{{ $card['txt'] }}</div>
