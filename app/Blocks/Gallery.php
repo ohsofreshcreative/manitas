@@ -42,6 +42,7 @@ class Gallery extends Block
 			->addGroup('g_gallery', ['label' => ''])
 
 			->addText('header', ['label' => 'Tytuł'])
+			->addText('txt', ['label' => 'Pakiet'])
 
 			->addGallery('gallery', [
 				'label' => 'Galeria',

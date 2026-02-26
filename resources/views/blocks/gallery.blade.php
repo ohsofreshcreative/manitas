@@ -15,6 +15,7 @@ $sectionClass .= ' ' . $background;
 
 <section data-gsap-anim="section" @if(!empty($section_id)) id="{{ $section_id }}" @endif class="b-gallery relative -smt {{ $sectionClass }} {{ $section_class }}">
 	<div class="__wrapper c-main">
+		<h4 data-gsap-element="header" class="m-header">{{ $g_gallery['txt'] }}</h4>
 		<h2 data-gsap-element="header" class="m-header">{{ $g_gallery['header'] }}</h2>
 
 		@if (!empty($g_gallery['gallery']))
