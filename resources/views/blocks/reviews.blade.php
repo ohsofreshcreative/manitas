@@ -20,21 +20,21 @@ $sectionClass .= $brandbg ? ' section-brand' : '';
 			</div>
 
 			<div class="swiper reviews-swiper !overflow-visible">
-				<div data-gsap-element="swiper" class="swiper-wrapper">
+				<div data-gsap-element="swiper" class="swiper-wrapper align-items-stretch">
 					@foreach($r_reviews as $card)
-					<div class="swiper-slide">
-						<div class="__card relative bg-white radius px-10 py-14">
+					<div class="swiper-slide !h-auto !flex flex-col">
+						<div class="__card relative flex flex-col bg-white radius h-100 px-10 py-14">
 
-							<div class="relative z-10 flex flex-col gap-4 mt-6">
+							<div class="relative z-10 flex flex-col h-full gap-4 mt-6">
 								<img class="w-20" src="/wp-content/uploads/2026/02/quote.svg" />
 								@if(!empty($card['txt']))
 								<div>
-									<div data-review="text" class="__txt max-h-24 overflow-hidden transition-all duration-300">{{ $card['txt'] }}</div>
+									<div data-review="text" class="__txt max-h-24 overflow-hidden transition-all duration-300">{!! $card['txt'] !!}</div>
 									<button type="button" data-review="button" class="text-gray-400 self-start mt-1">Przeczytaj całość</button>
 								</div>
 								@endif
 								<b class="font-header text-xl">{{ $card['name'] }}</b>
-								<a target="_blank" href="https://www.google.com/search?sa=X&sca_esv=e77c80913438f7a0&sxsrf=ANbL-n6KvZy12rkWJK_pWyikGbzOKM_4Aw:1771305801362&q=manitice%20opinie&rflfq=1&num=20&stick=H4sIAAAAAAAAAONgkxI2tTA3NzexNDA2NTa0NDM2MDc038DI-IqRPzcxL7MkMzlVIb8gMy8zdREruggA6W8aZD4AAAA&rldimm=5877749035319630717&tbm=lcl&hl=pl-PL&ved=0CAgQ5foLahcKEwiQxeGr5N-SAxUAAAAAHQAAAAAQBQ&biw=1680&bih=845&dpr=2#lkt=LocalPoiReviews&arid=Ci9DQUlRQUNvZENodHljRjlvT2t0WVlVcE5UVVJaWmxoSGNEVTNOR3g2TW10QlJIYxAB">
+								<a class="mt-auto justify-end" target="_blank" href="https://www.google.com/search?sa=X&sca_esv=e77c80913438f7a0&sxsrf=ANbL-n6KvZy12rkWJK_pWyikGbzOKM_4Aw:1771305801362&q=manitice%20opinie&rflfq=1&num=20&stick=H4sIAAAAAAAAAONgkxI2tTA3NzexNDA2NTa0NDM2MDc038DI-IqRPzcxL7MkMzlVIb8gMy8zdREruggA6W8aZD4AAAA&rldimm=5877749035319630717&tbm=lcl&hl=pl-PL&ved=0CAgQ5foLahcKEwiQxeGr5N-SAxUAAAAAHQAAAAAQBQ&biw=1680&bih=845&dpr=2#lkt=LocalPoiReviews&arid=Ci9DQUlRQUNvZENodHljRjlvT2t0WVlVcE5UVVJaWmxoSGNEVTNOR3g2TW10QlJIYxAB">
 									<div class="flex items-center gap-4">
 
 

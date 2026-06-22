@@ -54,10 +54,10 @@ $sectionClass .= $nomt ? ' !mt-0' : '';
 		</div>
 	</div>
 
-	<svg data-gsap-element="left" class="hero__left absolute top-0 left-0" xmlns="http://www.w3.org/2000/svg" width="442" height="839" viewBox="0 0 442 839" fill="none">
+<!-- 	<svg data-gsap-element="left" class="hero__left absolute top-0 left-0" xmlns="http://www.w3.org/2000/svg" width="442" height="839" viewBox="0 0 442 839" fill="none">
 		<path d="M0 838.278H168.453L62.6016 655.417C47.5569 629.512 47.5569 597.487 62.6016 571.583L369.211 41.9172C384.256 16.0124 411.995 0 442 0H0V838.278Z" fill="#E02D26"/>
 	</svg>
-
+ -->
 	<svg data-gsap-element="back" class="hero__back absolute bottom-0 right-0" xmlns="http://www.w3.org/2000/svg" width="968" height="331" viewBox="0 0 968 331" fill="none">
 		<path d="M0.526245 330.5L183.567 13.6195C188.168 5.65324 196.706 0.721747 205.907 0.721746L968 0.72168L968 330.5L0.526245 330.5Z" fill="#881719"/>
 	</svg>
