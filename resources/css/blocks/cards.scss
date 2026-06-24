@@ -1,9 +1,44 @@
 .b-cards {
 
+	h4,
+	.text-h4,
+	h5,
+	.text-h5,
+	h6,
+	.text-h6,
+	p,
+	b,
+	strong,
+	i,
+	ul,
+	ul li,
+	a,
+	.accordion-label,
+	.__txt {
+		color: var(--text-body) !important;
+
+		h5 {
+			margin: 8px 0;
+		}
+
+		p {
+			margin-bottom: 16px;
+		}
+
+		p:last-child {
+			margin-bottom: 0 !important;
+		}
+	}
 }
 
 .package {
 	.__title {
-		font-size:24px !important;
+		font-size: 24px !important;
+	}
+}
+
+.b-cards.packages {
+	.__cards {
+		grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)) !important;
 	}
 }

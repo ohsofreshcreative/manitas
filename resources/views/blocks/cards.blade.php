@@ -31,7 +31,7 @@ $sectionClass .= ' ' . $background;
 		$gridClass = $gridCols > 1 ? 'grid-cols-1 md:grid-cols-' . $gridCols : 'grid-cols-1';
 		@endphp
 
-		<div class="grid {{ $gridClass }} gap-8 mt-10">
+		<div class="__cards grid {{ $gridClass }} gap-8 mt-10">
 			@foreach ($r_cards as $item)
 			<div data-gsap-element="card" class="__card relative bg-white radius p-10">
 				@if (!empty($item['image']['url']))
@@ -41,7 +41,7 @@ $sectionClass .= ' ' . $background;
 				<p class="__title !text-body text-base !font-semibold mb-4">{{ $item['title'] }}</p>
 				@endif
 				@if (!empty($item['text']))
-				<p class="!text-body">{!! $item['text'] !!}</p>
+				<div class="__txt !text-body !text-primary">{!! $item['text'] !!}</div>
 				@endif
 			</div>
 			@endforeach

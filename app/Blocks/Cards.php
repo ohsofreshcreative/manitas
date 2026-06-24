@@ -66,10 +66,11 @@ class Cards extends Block
 			->addText('title', [
 				'label' => 'Nagłówek',
 			])
-			->addTextarea('text', [
-				'label' => 'Opis',
-				'rows' => 4,
-				'new_lines' => 'br',
+			->addWysiwyg('text', [
+				'label' => 'Treść',
+				'tabs' => 'all',
+				'toolbar' => 'full',
+				'media_upload' => true,
 			])
 			->endRepeater()
 
@@ -107,20 +108,20 @@ class Cards extends Block
 				'ui_off_text' => 'Nie',
 			])
 			->addSelect('background', [
-                'label' => 'Kolor tła',
-                'choices' => [
-                    'none' => 'Brak (domyślne)',
-                    'section-white' => 'Białe',
-                    'section-light' => 'Jasne',
-                    'section-gray' => 'Szare',
-                    'section-brand' => 'Marki',
-                    'section-gradient' => 'Gradient',
-                    'section-dark' => 'Ciemne',
-                ],
-                'default_value' => 'none',
-                'ui' => 0, // Ulepszony interfejs
-                'allow_null' => 0,
-            ]);
+				'label' => 'Kolor tła',
+				'choices' => [
+					'none' => 'Brak (domyślne)',
+					'section-white' => 'Białe',
+					'section-light' => 'Jasne',
+					'section-gray' => 'Szare',
+					'section-brand' => 'Marki',
+					'section-gradient' => 'Gradient',
+					'section-dark' => 'Ciemne',
+				],
+				'default_value' => 'none',
+				'ui' => 0, // Ulepszony interfejs
+				'allow_null' => 0,
+			]);
 
 		return $cards;
 	}
