@@ -1,32 +1,31 @@
 <?php
 
-namespace App\Blocks;
+namespace App\Fields;
 
-use Log1x\AcfComposer\Block;
+use Log1x\AcfComposer\Field;
 use StoutLogic\AcfBuilder\FieldsBuilder;
 
-class Reviews extends Block
+class Oreviews extends Field
 {
-	public $name = 'Opinie';
+	public $name = 'Slider - Opinie';
 	public $description = 'reviews';
-	public $slug = 'reviews';
+	public $slug = 'oreviews';
 	public $category = 'formatting';
-	public $icon = 'businessperson';
-	public $keywords = ['oferta', 'reviews', 'cpt'];
+	public $icon = 'format-quote';
+	public $keywords = ['reviews', 'kafelki'];
 	public $mode = 'edit';
 	public $supports = [
 		'align' => false,
 		'mode' => false,
 		'jsx' => true,
-		'anchor' => true,
-		'customClassName' => true,
 	];
 
-	public function fields()
+	public function fields(): array
 	{
-		$reviews = new FieldsBuilder('reviews');
+		$oreviews = new FieldsBuilder('oreviews');
 
-		$reviews
+		$oreviews
+			->setLocation('options_page', '==', 'oreviews')
 			->addText('block-title', [
 				'label' => 'Tytuł',
 				'required' => 0,
@@ -36,12 +35,36 @@ class Reviews extends Block
 				'open' => false,
 				'multi_expand' => true,
 			])
-			->addTab('Elementy', ['placement' => 'top'])
-			->addMessage('Edycja', 'Pole edytujemy klikajac w menu panelu administratora "Opinie".')
+			/*--- FIELDS ---*/
+			->addTab('Treści', ['placement' => 'top'])
+			->addGroup('g_reviews', ['label' => ''])
+			->addText('title', ['label' => 'Tytuł'])
+			->addWysiwyg('text', ['label' => 'Opis', 'media_upload' => 0, 'tabs' => 'visual'])
+			->endGroup()
+
+			/*--- OPINIE ---*/
+
+			->addTab('Opinie', ['placement' => 'top'])
+			->addRepeater('r_reviews', [
+				'label' => 'Slider - Opinie',
+				'layout' => 'table',
+				'min' => 1,
+				'max' => 15,
+				'button_label' => 'Dodaj kafelek',
+			])
+			->addTextarea('txt', [
+				'label' => 'Opis',
+				'rows' => 4,
+				'new_lines' => 'br',
+			])
+			->addText('name', [
+				'label' => 'Klient',
+			])
+			->endRepeater()
 
 			/*--- USTAWIENIA BLOKU ---*/
+
 			->addTab('Ustawienia bloku', ['placement' => 'top'])
-			->addMessage('Info', 'Tresci sekcji sa pobierane z Options Page "Opinie". Ustawienia ponizej dzialaja dla tej instancji bloku.')
 			->addText('section_id', [
 				'label' => 'ID',
 			])
@@ -91,23 +114,6 @@ class Reviews extends Block
 				'ui_off_text' => 'Nie',
 			]);
 
-		return $reviews->build();
-	}
-
-	public function with()
-	{
-		return [
-			'g_reviews' => get_field('g_reviews', 'option'),
-			'r_reviews' => get_field('r_reviews', 'option'),
-			'section_id' => get_field('section_id'),
-			'section_class' => get_field('section_class'),
-			'flip' => get_field('flip'),
-			'wide' => get_field('wide'),
-			'nomt' => get_field('nomt'),
-			'lightbg' => get_field('lightbg'),
-			'graybg' => get_field('graybg'),
-			'whitebg' => get_field('whitebg'),
-			'brandbg' => get_field('brandbg'),
-		];
+		return [$oreviews];
 	}
 }
